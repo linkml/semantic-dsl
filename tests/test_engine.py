@@ -6,7 +6,7 @@ import yaml
 from lark import Token
 from linkml_runtime import SchemaView
 
-from semdsl.datamodel.semdsl_model import AtomicSequence, ProductionRule, SchemaGrammar
+from semdsl.datamodel.semdsl_model import SchemaGrammar
 from semdsl.dsl_engine import DSLEngine
 from semdsl.mapper.mapper import Mapper
 from semdsl.writers.lark_writer import LarkWriter

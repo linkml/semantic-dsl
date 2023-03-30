@@ -1,4 +1,3 @@
-from copy import copy
 from dataclasses import dataclass
 from io import StringIO
 from typing import List, Optional, TextIO, Union
@@ -188,7 +187,7 @@ class SchemaImporter(Importer):
         sym = self._enum_symbol(enum.name)
         rule = ProductionRule(is_terminal=True, lhs_symbol=sym)
         disj = Disjunction(operands=[])
-        for text, pv in enum.permissible_values.items():
+        for text in enum.permissible_values.keys():
             seq = AtomicSequence(elements=[])
             self._add_terminal(seq, text)
             disj.operands.append(seq)

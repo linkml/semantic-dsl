@@ -2,8 +2,9 @@
 
 import unittest
 
+from lark import UnexpectedCharacters, UnexpectedToken
+
 from semdsl import DSLEngine
-from tests import EXAMPLE_DIR
 from tests.input.examples.arithmetic import ARITHMETIC_MODEL
 
 CLUE_SCHEMA = """
@@ -85,7 +86,7 @@ class TestSchemaImporter(unittest.TestCase):
         for case in cases:
             passes, ser, target_class, expected = case
             if not passes:
-                with self.assertRaises(Exception):
+                with self.assertRaises((UnexpectedCharacters, UnexpectedToken)) :
                     obj = engine.parse_as_object(ser, target_class=target_class)
                 continue
             obj = engine.parse_as_object(ser, target_class=target_class)

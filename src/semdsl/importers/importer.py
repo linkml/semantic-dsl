@@ -1,11 +1,6 @@
-import sys
 from abc import abstractmethod
-from dataclasses import dataclass, field
-from io import StringIO
-from types import ModuleType
-from typing import Any, TextIO
-
-from linkml_runtime.utils.compile_python import compile_python
+from dataclasses import dataclass
+from typing import Any
 
 from semdsl.datamodel.semdsl_model import SchemaGrammar
 

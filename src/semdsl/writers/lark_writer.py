@@ -1,8 +1,6 @@
 from dataclasses import dataclass
 from typing import Union
 
-from linkml_runtime.utils.compile_python import compile_python
-
 from semdsl.datamodel.semdsl_model import (
     AtomicSequence,
     Disjunction,

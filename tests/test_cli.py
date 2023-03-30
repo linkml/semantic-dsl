@@ -7,7 +7,7 @@ from click.testing import CliRunner
 from linkml_runtime import SCHEMA_DIRECTORY, SchemaView
 
 from semdsl.cli import main
-from tests import EXAMPLE_CLUE_DIR, EXAMPLE_DIR, OUTPUT_DIR
+from tests import OUTPUT_DIR
 from tests.input.examples.arithmetic import ARITHMETIC_DSL, ARITHMETIC_EXAMPLE, ARITHMETIC_MODEL
 from tests.input.examples.clue import CLUE_MODEL
 from tests.input.examples.linkml_lite import LINKML_DSL, LINKML_EXAMPLE

@@ -27,6 +27,6 @@ class TestSchemaImporter(unittest.TestCase):
         mod = writer.compile(sg)
         print(f"Compiled to {mod}")
         mapper = Mapper(schemaview=self.schemaview, schemagrammar=sg)
-        print("Parsing: SchemaDefinition(id=x name=y)")
+        print(mapper)
         tree = mod.grammar.parse("SchemaDefinition(id=x name=y)")
-        # print(tree.pretty())
+        print(tree.pretty())

@@ -2,7 +2,7 @@ import logging
 from dataclasses import dataclass
 from pathlib import Path
 from types import ModuleType
-from typing import Any, Optional, TextIO, Type, Union
+from typing import Optional, TextIO, Type, Union
 
 import yaml
 from lark import Tree

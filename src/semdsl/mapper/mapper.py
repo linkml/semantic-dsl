@@ -8,7 +8,7 @@ from linkml_runtime import SchemaView
 from linkml_runtime.linkml_model import SlotDefinition
 
 from semdsl.datamodel.semdsl_model import AtomicSequence, Disjunction, SchemaGrammar
-from semdsl.view.view import rule_by_non_terminal, rule_lhs_symbol
+from semdsl.view.view import rule_lhs_symbol
 
 logger = logging.getLogger(__name__)
 
@@ -54,7 +54,6 @@ class Mapper:
                 if tgt_class not in sv.all_classes():
                     raise ValueError(f"Unknown class {tgt_class}")
                 target = tgt_class
-            rule = rule_by_non_terminal(self.schemagrammar, token.value)
             is_object = (
                 tgt_class and not class_defs[tgt_class].abstract and not class_defs[tgt_class].mixin
             )
