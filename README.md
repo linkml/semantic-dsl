@@ -1,5 +1,5 @@
 # Semantic-DSL
- 
+
 For rapid development of semantically-backed Domain-Specific Languages (DSLs),
 
 ## Installation
