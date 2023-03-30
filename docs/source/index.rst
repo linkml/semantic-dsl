@@ -10,6 +10,7 @@ Semantic-DSL documentation
    :maxdepth: 2
    :caption: Contents:
 
+   overview
    modules
    datamodel
 
