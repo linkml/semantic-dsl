@@ -25,12 +25,11 @@ jobs:
         
     - name: Build documentation.
       run: |
-        echo ${{ secrets.GH_TOKEN }} >> src/schemagrammar/token.txt
+        echo ${{ secrets.GH_TOKEN }} >> src/semdsl/token.txt
         mkdir gh-pages
         touch gh-pages/.nojekyll
+        make sphinx-html
         cd docs/
-        poetry run sphinx-apidoc -o . ../src/schemagrammar/ --ext-autodoc -f
-        poetry run sphinx-build -b html . _build
         cp -r _build/* ../gh-pages/
     
     - name: Deploy documentation.
