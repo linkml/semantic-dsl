@@ -1,0 +1,92 @@
+description: test arithmentic expressions
+parser: earley
+start_symbols:
+  - expr
+  - constant
+  - container
+  - variable
+  - compound_expr
+pragmas:
+  - "%ignore WS"
+rules:
+  - lhs_symbol: expressions
+    rhs:
+      elements:
+        - name: "expr*"
+    source_slot: expressions
+  - lhs_symbol: container
+    rhs:
+      elements:
+        - value: "EXPRESSIONS:"
+        - name: "expressions"
+    source_class: Container
+    source_slot: expressions
+  - is_terminal: true
+    lhs_symbol: v
+    rhs:
+      elements:
+        - name: NUMBER
+    source_slot: value
+  - is_terminal: true
+    lhs_symbol: vname
+    rhs:
+      elements:
+        - name: WORD
+    source_slot: name
+  - is_terminal: true
+    lhs_symbol: OPERATOR_SYMBOL
+    rhs:
+      operands:
+        - elements:
+            - value: '+'
+        - elements:
+            - value: '-'
+  - is_terminal: true
+    lhs_symbol: operator
+    rhs:
+      elements:
+        - name: OPERATOR_SYMBOL
+  - description: main rule
+    source_class: Expression
+    lhs_symbol: expr
+    rhs:
+      operands:
+        - elements:
+            - name: compound_expr
+        - elements:
+            - name: constant
+        - elements:
+            - name: variable
+    #alias: foo
+  - # source_class: CompoundExpression
+    lhs_symbol: compound_expr
+    rhs:
+      operands:
+        - elements:
+            - name: left
+            - name: operator
+            - name: right
+          source_class: CompoundExpression
+          alias: main_expression
+        - elements:
+            - value: '('
+            - name: expr
+            - value: ')'
+  - lhs_symbol: left
+    rhs:
+      elements:
+        - name: expr
+  - lhs_symbol: right
+    rhs:
+      elements:
+        - name: expr
+  - source_class: Constant
+    lhs_symbol: constant
+    rhs:
+      elements:
+        - name: v
+  - source_class: Variable
+    lhs_symbol: variable
+    rhs:
+      elements:
+        - name: vname

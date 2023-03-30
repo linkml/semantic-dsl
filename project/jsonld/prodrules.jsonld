@@ -1,0 +1,753 @@
+{
+  "name": "prodrules",
+  "description": "This is the project description.",
+  "title": "SchemaGrammar production rules",
+  "see_also": [
+    "https://owlcollab.github.io/owl-datamodel"
+  ],
+  "id": "https://w3id.org/linkml/schemagrammar/prodrules",
+  "imports": [
+    "linkml:types"
+  ],
+  "license": "BSD-3",
+  "prefixes": [
+    {
+      "prefix_prefix": "prodrules",
+      "prefix_reference": "https://w3id.org/linkml/schemagrammar/prodrules/"
+    },
+    {
+      "prefix_prefix": "linkml",
+      "prefix_reference": "https://w3id.org/linkml/"
+    },
+    {
+      "prefix_prefix": "schema",
+      "prefix_reference": "http://schema.org/"
+    },
+    {
+      "prefix_prefix": "wikidata",
+      "prefix_reference": "http://www.wikidata.org/entity/"
+    }
+  ],
+  "default_prefix": "prodrules",
+  "default_range": "string",
+  "types": [
+    {
+      "name": "string",
+      "definition_uri": "https://w3id.org/linkml/String",
+      "description": "A character string",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Text"
+      ],
+      "base": "str",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "integer",
+      "definition_uri": "https://w3id.org/linkml/Integer",
+      "description": "An integer",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Integer"
+      ],
+      "base": "int",
+      "uri": "http://www.w3.org/2001/XMLSchema#integer",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "boolean",
+      "definition_uri": "https://w3id.org/linkml/Boolean",
+      "description": "A binary (true or false) value",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Boolean"
+      ],
+      "base": "Bool",
+      "uri": "http://www.w3.org/2001/XMLSchema#boolean",
+      "repr": "bool",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "float",
+      "definition_uri": "https://w3id.org/linkml/Float",
+      "description": "A real number that conforms to the xsd:float specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#float",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "double",
+      "definition_uri": "https://w3id.org/linkml/Double",
+      "description": "A real number that conforms to the xsd:double specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "close_mappings": [
+        "schema:Float"
+      ],
+      "base": "float",
+      "uri": "http://www.w3.org/2001/XMLSchema#double",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "decimal",
+      "definition_uri": "https://w3id.org/linkml/Decimal",
+      "description": "A real number with arbitrary precision that conforms to the xsd:decimal specification",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "broad_mappings": [
+        "schema:Number"
+      ],
+      "base": "Decimal",
+      "uri": "http://www.w3.org/2001/XMLSchema#decimal",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "time",
+      "definition_uri": "https://w3id.org/linkml/Time",
+      "description": "A time object represents a (local) time of day, independent of any particular day",
+      "notes": [
+        "URI is dateTime because OWL reasoners do not work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Time"
+      ],
+      "base": "XSDTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date",
+      "definition_uri": "https://w3id.org/linkml/Date",
+      "description": "a date (year, month and day) in an idealized calendar",
+      "notes": [
+        "URI is dateTime because OWL reasoners don't work with straight date or time"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:Date"
+      ],
+      "base": "XSDDate",
+      "uri": "http://www.w3.org/2001/XMLSchema#date",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "datetime",
+      "definition_uri": "https://w3id.org/linkml/Datetime",
+      "description": "The combination of a date and time",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "exact_mappings": [
+        "schema:DateTime"
+      ],
+      "base": "XSDDateTime",
+      "uri": "http://www.w3.org/2001/XMLSchema#dateTime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "date_or_datetime",
+      "definition_uri": "https://w3id.org/linkml/DateOrDatetime",
+      "description": "Either a date or a datetime",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "str",
+      "uri": "https://w3id.org/linkml/DateOrDatetime",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uriorcurie",
+      "definition_uri": "https://w3id.org/linkml/Uriorcurie",
+      "description": "a URI or a CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "URIorCURIE",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "curie",
+      "definition_uri": "https://w3id.org/linkml/Curie",
+      "conforms_to": "https://www.w3.org/TR/curie/",
+      "description": "a compact URI",
+      "comments": [
+        "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "Curie",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "uri",
+      "definition_uri": "https://w3id.org/linkml/Uri",
+      "conforms_to": "https://www.ietf.org/rfc/rfc3987.txt",
+      "description": "a complete URI",
+      "comments": [
+        "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "close_mappings": [
+        "schema:URL"
+      ],
+      "base": "URI",
+      "uri": "http://www.w3.org/2001/XMLSchema#anyURI",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "ncname",
+      "definition_uri": "https://w3id.org/linkml/Ncname",
+      "description": "Prefix part of CURIE",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NCName",
+      "uri": "http://www.w3.org/2001/XMLSchema#string",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "objectidentifier",
+      "definition_uri": "https://w3id.org/linkml/Objectidentifier",
+      "description": "A URI or CURIE that represents an object in the model.",
+      "comments": [
+        "Used for inheritence and type checking"
+      ],
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "ElementIdentifier",
+      "uri": "http://www.w3.org/ns/shex#iri",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    },
+    {
+      "name": "nodeidentifier",
+      "definition_uri": "https://w3id.org/linkml/Nodeidentifier",
+      "description": "A URI, CURIE or BNODE that represents a node in a model.",
+      "from_schema": "https://w3id.org/linkml/types",
+      "imported_from": "linkml:types",
+      "base": "NodeIdentifier",
+      "uri": "http://www.w3.org/ns/shex#nonLiteral",
+      "repr": "str",
+      "@type": "TypeDefinition"
+    }
+  ],
+  "enums": [
+    {
+      "name": "ParserType",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/ParserType",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "permissible_values": [
+        {
+          "text": "earley",
+          "comments": [
+            "slower but may be more suited to some grammars"
+          ]
+        },
+        {
+          "text": "lalr"
+        }
+      ]
+    },
+    {
+      "name": "GrammarType",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/GrammarType",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "permissible_values": [
+        {
+          "text": "ContextFree",
+          "description": "A context-free grammar is a formal grammar in which every production rule has the form A \u2192 \u03b1, where A is a nonterminal and \u03b1 is a string of terminals and nonterminals. The string \u03b1 is called the right-hand side of the production rule, and A is called the left-hand side. The set of all nonterminals is called the set of variables. The set of all terminals is called the set of terminals. The set of all variables and terminals is called the alphabet of the grammar. The set of all strings of terminals and nonterminals that can be derived from the start symbol is called the language of the grammar.",
+          "meaning": "wikidata:Q338047"
+        },
+        {
+          "text": "Regular",
+          "description": "A regular grammar is a formal grammar in which every production rule has the form A \u2192 a, where A is a nonterminal and a is a terminal. The string a is called the right-hand side of the production rule, and A is called the left-hand side. The set of all nonterminals is called the set of variables. The set of all terminals is called the set of terminals. The set of all variables and terminals is called the alphabet of the grammar. The set of all strings of terminals and nonterminals that can be derived from the start symbol is called the language of the grammar.",
+          "meaning": "wikidata:Q645527"
+        },
+        {
+          "text": "ContextSensitive",
+          "description": "A context-sensitive grammar is a formal grammar in which every production rule has the form A \u2192 \u03b1B, where A and B are nonterminals and \u03b1 is a string of terminals and nonterminals. The string \u03b1 is called the right-hand side of the production rule, and A and B are called the left-hand side. The set of all nonterminals is called the set of variables. The set of all terminals is called the set of terminals. The set of all variables and terminals is called the alphabet of the grammar. The set of all strings of terminals and nonterminals that can be derived from the start symbol is called the language of the grammar.",
+          "meaning": "wikidata:Q908674"
+        }
+      ]
+    },
+    {
+      "name": "GrammarSyntaxType",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/GrammarSyntaxType",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "permissible_values": [
+        {
+          "text": "lark"
+        },
+        {
+          "text": "antlr"
+        },
+        {
+          "text": "ebnf"
+        }
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "name": "name",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/name",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/name",
+      "identifier": true,
+      "owner": "NonTerminal",
+      "domain_of": [
+        "NonTerminal"
+      ],
+      "range": "string",
+      "required": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "description",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/description",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/description",
+      "owner": "ProductionRule",
+      "domain_of": [
+        "ProductionRule"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "alias",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/alias",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/alias",
+      "owner": "AtomicSequence",
+      "domain_of": [
+        "ProductionRule",
+        "AtomicSequence"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "value",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/value",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/value",
+      "owner": "Terminal",
+      "domain_of": [
+        "Terminal"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "type",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/type",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/type",
+      "designates_type": true,
+      "owner": "Symbol",
+      "domain_of": [
+        "Sequence",
+        "Symbol"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "elements",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/elements",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/elements",
+      "multivalued": true,
+      "owner": "AtomicSequence",
+      "domain_of": [
+        "AtomicSequence"
+      ],
+      "range": "string",
+      "inlined": true,
+      "any_of": [
+        {
+          "range": "Symbol",
+          "@type": "AnonymousSlotExpression"
+        },
+        {
+          "range": "Sequence",
+          "@type": "AnonymousSlotExpression"
+        }
+      ],
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "operands",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/operands",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/operands",
+      "multivalued": true,
+      "owner": "Disjunction",
+      "domain_of": [
+        "Disjunction"
+      ],
+      "range": "Sequence",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "lhs_symbol",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/lhs_symbol",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/lhs_symbol",
+      "owner": "ProductionRule",
+      "domain_of": [
+        "ProductionRule"
+      ],
+      "range": "NonTerminal",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "lhs",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/lhs",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/lhs",
+      "owner": "ProductionRule",
+      "domain_of": [
+        "ProductionRule"
+      ],
+      "range": "Sequence",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "rhs",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/rhs",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/rhs",
+      "owner": "ProductionRule",
+      "domain_of": [
+        "ProductionRule"
+      ],
+      "range": "Sequence",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "is_terminal",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/is_terminal",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/is_terminal",
+      "owner": "ProductionRule",
+      "domain_of": [
+        "ProductionRule"
+      ],
+      "range": "boolean",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "source_class",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/source_class",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/source_class",
+      "owner": "NonTerminal",
+      "domain_of": [
+        "AtomicSequence",
+        "NonTerminal"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "source_slot",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/source_slot",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/source_slot",
+      "owner": "NonTerminal",
+      "domain_of": [
+        "NonTerminal"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "grammar__description",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/description",
+      "alias": "description",
+      "owner": "Grammar",
+      "domain_of": [
+        "Grammar"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "grammar__rules",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/rules",
+      "multivalued": true,
+      "alias": "rules",
+      "owner": "Grammar",
+      "domain_of": [
+        "Grammar"
+      ],
+      "range": "ProductionRule",
+      "inlined": true,
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "grammar__expressivity",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/expressivity",
+      "alias": "expressivity",
+      "owner": "Grammar",
+      "domain_of": [
+        "Grammar"
+      ],
+      "range": "GrammarType",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "grammar__start_symbols",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/start_symbols",
+      "multivalued": true,
+      "alias": "start_symbols",
+      "owner": "Grammar",
+      "domain_of": [
+        "Grammar"
+      ],
+      "range": "NonTerminal",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "grammar__parser",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/parser",
+      "alias": "parser",
+      "owner": "Grammar",
+      "domain_of": [
+        "Grammar"
+      ],
+      "range": "ParserType",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "grammar__pragmas",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/pragmas",
+      "multivalued": true,
+      "alias": "pragmas",
+      "owner": "Grammar",
+      "domain_of": [
+        "Grammar"
+      ],
+      "range": "string",
+      "@type": "SlotDefinition"
+    },
+    {
+      "name": "grammar__syntax",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slot_uri": "https://w3id.org/linkml/schemagrammar/prodrules/syntax",
+      "alias": "syntax",
+      "owner": "Grammar",
+      "domain_of": [
+        "Grammar"
+      ],
+      "range": "GrammarSyntaxType",
+      "@type": "SlotDefinition"
+    }
+  ],
+  "classes": [
+    {
+      "name": "Grammar",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/Grammar",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slots": [
+        "grammar__description",
+        "grammar__rules",
+        "grammar__expressivity",
+        "grammar__start_symbols",
+        "grammar__parser",
+        "grammar__pragmas",
+        "grammar__syntax"
+      ],
+      "slot_usage": {},
+      "attributes": [
+        {
+          "name": "description",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "rules",
+          "multivalued": true,
+          "range": "ProductionRule",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "expressivity",
+          "range": "GrammarType",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "start_symbols",
+          "multivalued": true,
+          "range": "NonTerminal",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "parser",
+          "range": "ParserType",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "pragmas",
+          "multivalued": true,
+          "range": "string",
+          "@type": "SlotDefinition"
+        },
+        {
+          "name": "syntax",
+          "range": "GrammarSyntaxType",
+          "@type": "SlotDefinition"
+        }
+      ],
+      "class_uri": "https://w3id.org/linkml/schemagrammar/prodrules/Grammar",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "ProductionRule",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/ProductionRule",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "slots": [
+        "description",
+        "lhs_symbol",
+        "lhs",
+        "rhs",
+        "is_terminal",
+        "alias"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/linkml/schemagrammar/prodrules/ProductionRule",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Sequence",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/Sequence",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "abstract": true,
+      "slots": [
+        "type"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/linkml/schemagrammar/prodrules/Sequence",
+      "union_of": [
+        "Disjunction",
+        "AtomicSequence"
+      ],
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Disjunction",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/Disjunction",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "is_a": "Sequence",
+      "slots": [
+        "type",
+        "operands"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/linkml/schemagrammar/prodrules/Disjunction",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "AtomicSequence",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/AtomicSequence",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "is_a": "Sequence",
+      "slots": [
+        "type",
+        "elements",
+        "alias",
+        "source_class"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/linkml/schemagrammar/prodrules/AtomicSequence",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Symbol",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/Symbol",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "abstract": true,
+      "slots": [
+        "type"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/linkml/schemagrammar/prodrules/Symbol",
+      "union_of": [
+        "Terminal",
+        "NonTerminal"
+      ],
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "Terminal",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/Terminal",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "is_a": "Symbol",
+      "slots": [
+        "type",
+        "value"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/linkml/schemagrammar/prodrules/Terminal",
+      "@type": "ClassDefinition"
+    },
+    {
+      "name": "NonTerminal",
+      "definition_uri": "https://w3id.org/linkml/schemagrammar/prodrules/NonTerminal",
+      "from_schema": "https://w3id.org/linkml/schemagrammar/prodrules",
+      "is_a": "Symbol",
+      "slots": [
+        "type",
+        "name",
+        "source_class",
+        "source_slot"
+      ],
+      "slot_usage": {},
+      "class_uri": "https://w3id.org/linkml/schemagrammar/prodrules/NonTerminal",
+      "@type": "ClassDefinition"
+    }
+  ],
+  "metamodel_version": "1.7.0",
+  "source_file": "prodrules.yaml",
+  "source_file_date": "2023-03-27T16:32:46",
+  "source_file_size": 4372,
+  "generation_date": "2023-03-27T16:32:49",
+  "@type": "SchemaDefinition",
+  "@context": [
+    "project/jsonld/prodrules.context.jsonld",
+    "https://w3id.org/linkml/types.context.jsonld",
+    {
+      "@base": "https://w3id.org/linkml/schemagrammar/prodrules/"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+id: https://example.org/clue
+name: clue
+prefixes:
+  linkml: https://w3id.org/linkml/
+imports:
+  - linkml:types
+classes:
+  ClueHypothesis:
+    tree_root: true
+    attributes:
+      person:   # e.g. Colonel Mustard
+        annotations:
+          grammar.main: "WORD WORD"
+      location: # e.g. Kitchen
+        annotations:
+          grammar.main: "WORD"
+      weapon:   # e.g. Candlestick
+        annotations:
+          grammar.main: "WORD"
+    annotations:
+      grammar.main: >-
+        "<" person "in the" location "with the" weapon ">"

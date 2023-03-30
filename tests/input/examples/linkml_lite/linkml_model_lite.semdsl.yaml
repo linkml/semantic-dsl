@@ -1,0 +1,170 @@
+description: test minimal subset of linkml
+parser: earley
+start_symbols:
+  - schema
+normalize_collections: true
+pragmas:
+  - "%ignore WS"
+rules:
+  - lhs_symbol: schema
+    rhs_serialized: >-
+      schema_id schema_name description? (comment|import|prefix|class|slot|type|enum)*
+    source_class: schema_definition
+  - lhs_symbol: class
+    rhs_serialized: >-
+      "class" class_name is_a? mixins? "{" description? class_uri? (comment|attribute|slot_usage|slots)* "}"
+    source_slot: classes
+    source_class: class_definition
+  - lhs_symbol: slot
+    rhs_serialized: >-
+      "slot" slot_block
+    source_slot: slot_definitions
+  - lhs_symbol: slot_block
+    rhs_serialized: >-
+      slot_name "{" description? required? multivalued? range? (comment)* "}"
+    source_class: slot_definition
+  - lhs_symbol: type
+    rhs_serialized: >-
+      "type" type_name "{" (uri)* "}"
+    source_class: type_definition
+  - lhs_symbol: enum
+    rhs_serialized: >-
+      "enum" enum_name "{" description? (permissible_value)* "}"
+    source_slot: enums
+    source_class: enum_definition
+  - lhs_symbol: permissible_value
+    rhs_serialized: >-
+      "value" permissible_value_text "{" description? "}"
+    source_slot: permissible_values
+    source_class: permissible_value
+
+  - lhs_symbol: import
+    rhs_serialized: >-
+      "import" WORD
+    source_slot: imports
+
+  - lhs_symbol: comment
+    rhs_serialized: >-
+      "!" TYPE_STRING
+    source_slot: comments
+
+  - lhs_symbol: class_uri
+    rhs_serialized: >-
+      "(" WORD ")"
+
+  - lhs_symbol: schema_id
+    rhs_serialized: >-
+      "(" WORD ")"
+    source_slot: id
+
+  - lhs_symbol: schema_name
+    rhs_serialized: name
+    source_slot: name
+
+  - lhs_symbol: prefix  ## TODO: pydantic dictification
+    rhs_serialized: >-
+      "prefix" prefix_prefix prefix_reference
+    source_class: prefix
+    source_slot: prefixes
+
+  - lhs_symbol: prefix_prefix
+    rhs_serialized: WORD
+
+  - lhs_symbol: prefix_reference
+    rhs_serialized: WORD
+
+  - lhs_symbol: is_a
+    rhs_serialized: >-
+      "is_a" name
+    source_slot: is_a
+
+  - lhs_symbol: mixins
+    rhs_serialized: >-
+      "mixins" name+
+    source_slot: mixins
+
+  - lhs_symbol: range
+    rhs_serialized: atomic_range | disjunctive_range
+
+  - lhs_symbol: atomic_range
+    rhs_serialized: >-
+      "range=" name
+    source_slot: range
+
+  - lhs_symbol: disjunctive_range  # TODO
+    rhs_serialized: >-
+      "range=" name ( "|" name)+
+    source_slot: range_union
+
+  - lhs_symbol: required
+    rhs_serialized: >-
+     REQUIRED_TOKEN
+    source_slot: required
+    yields: true  ## TODO
+
+  - lhs_symbol: REQUIRED_TOKEN
+    rhs_serialized: >-
+      "required"
+    yields: true
+
+  - lhs_symbol: multivalued
+    rhs_serialized: >-
+      MULTIVALUED_TOKEN
+    source_slot: multivalued
+    yields: true
+
+  - lhs_symbol:  MULTIVALUED_TOKEN
+    rhs_serialized: >-
+      "multivalued"
+    yields: true
+
+  - lhs_symbol: attribute
+    rhs_serialized: >-
+      "attribute" slot_block
+    source_slot: attributes
+
+  - lhs_symbol: slot_usage
+    rhs_serialized: >-
+      "usage" slot_block
+    source_slot: slot_usage
+
+  - lhs_symbol: slots
+    rhs_serialized: >-
+      "slots [" slot_name* "]"
+    source_slot: slots
+
+  # NAMES
+
+  - lhs_symbol: class_name
+    rhs_serialized: name
+    source_slot: name
+
+  - lhs_symbol: slot_name
+    rhs_serialized: name
+    source_slot: name
+
+  - lhs_symbol: type_name
+    rhs_serialized: name
+    source_slot: name
+
+  - lhs_symbol: enum_name
+    rhs_serialized: name
+    source_slot: name
+
+  - lhs_symbol: name
+    rhs_serialized: WORD
+
+  - lhs_symbol: uri
+    rhs_serialized: WORD
+  - lhs_symbol: description
+    rhs_serialized: TYPE_STRING
+  - lhs_symbol: permissible_value_text
+    rhs_serialized: WORD | TYPE_STRING
+    source_slot: text
+
+  - lhs_symbol: TYPE_STRING
+    rhs_serialized: ESCAPED_STRING
+
+
+
+  

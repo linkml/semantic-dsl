@@ -1,0 +1,48 @@
+id: https://example.org/clue
+name: clue
+prefixes:
+  linkml: https://w3id.org/linkml/
+  clue: https://example.org/clue/
+  schema: http://schema.org/
+  prov: http://www.w3.org/ns/prov#
+  dbpedia: http://dbpedia.org/ontology/
+imports:
+  - linkml:types
+classes:
+  NamedThing:
+    class_uri: schema:Thing
+    attributes:
+      id:
+        identifier: true
+      range: uriorcurie
+  Person:
+    class_uri: schema:Person
+    is_a: NamedThing
+  Location:
+    class_uri: schema:Location
+    is_a: NamedThing
+  Weapon:
+    class_uri: dbpedia:Weapon
+    is_a: NamedThing
+  ClueHypothesis:
+    class_uri: prov:Action
+    tree_root: true
+    attributes:
+      person:   # e.g. Colonel Mustard
+        slot_uri: prov:wasAssociatedWith
+        range: Person
+        annotations:
+          grammar.main: TYPE_URIORCURIE
+      location: # e.g. Kitchen
+        slot_uri: prov:atLocation
+        range: Location
+        annotations:
+          grammar.main: TYPE_URIORCURIE
+      weapon:   # e.g. Candlestick
+        slot_uri: prov:used
+        range: Weapon
+        annotations:
+          grammar.main: TYPE_URIORCURIE
+    annotations:
+      grammar.main: >-
+        "<" person "in the" location "with the" weapon ">"

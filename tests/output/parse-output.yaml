@@ -1,0 +1,16 @@
+{
+  "expressions": [
+    {
+      "type": "CompoundExpression",
+      "operator": "+",
+      "left": {
+        "type": "Constant",
+        "value": 1.0
+      },
+      "right": {
+        "type": "Constant",
+        "value": 1.0
+      }
+    }
+  ]
+}

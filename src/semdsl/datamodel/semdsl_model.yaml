@@ -1,0 +1,232 @@
+id: https://w3id.org/linkml/semdsl
+name: semdsl_model
+title: Data model for Semantic DSL production rules
+description: |-
+  A data model representing a grammar (or a set of production rules) together with mappings
+  to a domain schema. Together these consistute a *semantic Domain Specific Language (DSL)*
+license: BSD-3
+
+prefixes:
+  semdsl: https://w3id.org/linkml/semdsl/
+  linkml: https://w3id.org/linkml/
+  schema: http://schema.org/
+  wikidata: http://www.wikidata.org/entity/
+default_prefix: prodrules
+
+imports:
+  - linkml:types
+
+classes:
+
+  SchemaGrammar:
+    aliases:
+      - DSL
+    description: >-
+      A SchemaGrammar (or DSL) is a set of production rules that are mapped to a schema
+    attributes:
+      description:
+        description: >-
+          A description of the DSL
+      rules:
+        description: >-
+          A set of production rules
+        range: ProductionRule
+        multivalued: true
+      expressivity:
+        description: >-
+          The expressivity of the grammar, e.g. regular, context-free, etc.
+        range: GrammarType
+      start_symbols:
+        description: >-
+          All possible start symbols of the grammar
+        range: NonTerminal
+        multivalued: true
+      parser:
+        description: >-
+          The parser used to parse the DSL, e.g. lalr, earley, etc.
+        range: ParserType
+      pragmas:
+        description: >-
+          Pragmas that are used to control the parser
+        range: string
+        multivalued: true
+      syntax:
+        description: >-
+          The syntax of the DSL, e.g. Lark, ANTLR, etc.
+        range: GrammarSyntaxType
+      normalize_collections:
+        description: >-
+          If true, then collections are normalized to a single element
+        see_also:
+          - https://w3id.org/linkml/docs/specification/06mapping/
+        range: boolean
+
+  ProductionRule:
+    description: >-
+      A production rule is a mapping from a left-hand side (LHS) to a right-hand side (RHS).
+      The LHS is a non-terminal symbol, and the RHS is a sequence of symbols, which may be
+      terminals or non-terminals.
+    slots:
+      - description
+      - lhs_symbol
+      - lhs
+      - rhs
+      - rhs_serialized
+      - is_terminal
+      - alias
+      - source_class
+      - source_slot
+      - yields
+
+  Sequence:
+    description: >-
+      A sequence is a sequence of symbols, which may be terminals or non-terminals.
+    abstract: true
+    union_of:
+      - Disjunction
+      - AtomicSequence
+    slots:
+      - type
+      - serialized
+
+  Disjunction:
+    description: >-
+      A disjunction is a set of sequences that represent alternative ways to parse tokens
+    is_a: Sequence
+    slots:
+      - operands
+
+  AtomicSequence:
+    description: >-
+      An atomic sequence is a sequence of symbols, which may be terminals or non-terminals.
+    is_a: Sequence
+    slots:
+      - elements
+      - alias
+      - source_class
+
+  Symbol:
+    description: >-
+      A symbol is a terminal or non-terminal symbol
+    abstract: true
+    union_of:
+      - Terminal
+      - NonTerminal
+    slots:
+      - type
+      - repetitions
+
+  Terminal:
+    description: >-
+      A terminal symbol is a symbol that represents a literal token
+    is_a: Symbol
+    slots:
+      - value
+
+  NonTerminal:
+    description: >-
+      A non-terminal symbol is a symbol that represents a non-terminal
+    is_a: Symbol
+    slots:
+      - name
+      - source_class
+      - source_slot
+
+  Any:
+    class_uri: linkml:Any
+
+
+slots:
+  name:
+    description: >-
+      The name of the symbol
+    range: string
+    identifier: true
+  description:
+    description: >-
+      A description of the element
+    range: string
+  alias:
+    range: string
+  value:
+    range: string
+  repetitions:
+    range: string
+  type:
+    designates_type: true
+    range: string
+  yields:
+    range: Any
+  elements:
+    description: >-
+      The elements of the sequence
+    any_of:
+      - range: Symbol
+      - range: Sequence
+    multivalued: true
+    inlined: true
+  operands:
+    description: >-
+      The operands of the disjunction
+    range: Sequence
+    multivalued: true
+  lhs_symbol:
+    description: >-
+      The left-hand side of the production rule (applies only to CFGs or RGs)
+    range: NonTerminal
+  lhs:
+    description: >-
+      The left-hand side of the production rule.
+      Note for CFGs or RGs, it may be more convenient to use lhs_symbol
+    range: Sequence
+  rhs:
+    description: >-
+      The right-hand side of the production rule
+    range: Sequence
+  rhs_serialized:
+    description: >-
+      The right-hand side of the production rule, serialized as a string
+    range: string
+  is_terminal:
+    range: boolean
+  source_class:
+    description: >-
+      The LinkML class definition the rule is mapped to
+  source_slot:
+    description: >-
+      The LinkML slot definition the rule is mapped to
+  serialized:
+
+enums:
+
+  ParserType:
+    description: >-
+      The parser used to parse the DSL, e.g. lalr, earley, etc.
+    permissible_values:
+      earley:
+        comments:
+          - slower but may be more suited to some grammars
+      lalr:
+
+  GrammarType:
+    description: >-
+      The type of grammar, e.g. regular, context-free, etc.
+    permissible_values:
+      ContextFree:
+        description: >-
+          A context-free grammar is a formal grammar in which every production rule has the form A → α, where A is a nonterminal and α is a string of terminals and nonterminals. The string α is called the right-hand side of the production rule, and A is called the left-hand side. The set of all nonterminals is called the set of variables. The set of all terminals is called the set of terminals. The set of all variables and terminals is called the alphabet of the grammar. The set of all strings of terminals and nonterminals that can be derived from the start symbol is called the language of the grammar.
+        meaning: wikidata:Q338047
+      Regular:
+        description: >-
+            A regular grammar is a formal grammar in which every production rule has the form A → a, where A is a nonterminal and a is a terminal. The string a is called the right-hand side of the production rule, and A is called the left-hand side. The set of all nonterminals is called the set of variables. The set of all terminals is called the set of terminals. The set of all variables and terminals is called the alphabet of the grammar. The set of all strings of terminals and nonterminals that can be derived from the start symbol is called the language of the grammar.
+        meaning: wikidata:Q645527
+      ContextSensitive:
+        description: >-
+          A context-sensitive grammar is a formal grammar in which every production rule has the form A → αB, where A and B are nonterminals and α is a string of terminals and nonterminals. The string α is called the right-hand side of the production rule, and A and B are called the left-hand side. The set of all nonterminals is called the set of variables. The set of all terminals is called the set of terminals. The set of all variables and terminals is called the alphabet of the grammar. The set of all strings of terminals and nonterminals that can be derived from the start symbol is called the language of the grammar.
+        meaning: wikidata:Q908674
+
+  GrammarSyntaxType:
+    permissible_values:
+      lark:
+      antlr:
+      ebnf:

@@ -1,0 +1,44 @@
+description: my test schema
+comments:
+- comment 1
+- comment 2
+name: test
+id: test
+enums:
+  E:
+    permissible_values:
+      x:
+        description: blah
+      y z:
+        description: blah
+    description: my enum
+slot_definitions:
+  s:
+    description: my test slot
+  t:
+    range: A
+    required: true
+    description: my test slot
+    multivalued: true
+classes:
+  C:
+    description: my test class
+    is_a: A
+    mixins:
+    - M
+    - N
+    slots:
+    - a
+    - b
+    - c
+    slot_usage:
+      t:
+        description: foo
+    attributes:
+      x:
+        range: A
+        description: X
+    class_uri: myuri
+  D:
+    description: my test class
+    is_a: A

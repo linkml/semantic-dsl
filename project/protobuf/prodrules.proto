@@ -1,0 +1,43 @@
+message AtomicSequence
+ {
+  string type = 0
+ repeated  string elements = 0
+  string alias = 0
+  string sourceClass = 0
+ }
+message Disjunction
+ {
+  string type = 0
+ repeated  sequence operands = 0
+ }
+message Grammar
+ {
+  string description = 0
+ repeated  productionRule rules = 0
+  grammarType expressivity = 0
+ repeated  nonTerminal startSymbols = 0
+  parserType parser = 0
+ repeated  string pragmas = 0
+  grammarSyntaxType syntax = 0
+ }
+message NonTerminal
+ {
+  string type = 0
+  string name = 0
+  string sourceClass = 0
+  string sourceSlot = 0
+ }
+message ProductionRule
+ {
+  string description = 0
+  nonTerminal lhsSymbol = 0
+  sequence lhs = 0
+  sequence rhs = 0
+  boolean isTerminal = 0
+  string alias = 0
+ }
+message Terminal
+ {
+  string type = 0
+  string value = 0
+ }

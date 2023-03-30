@@ -1,0 +1,188 @@
+{
+    "$defs": {
+        "AtomicSequence": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "alias": {
+                    "type": "string"
+                },
+                "elements": {
+                    "items": {
+                        "anyOf": [
+                            {
+                                "$ref": "#/$defs/Symbol"
+                            },
+                            {
+                                "$ref": "#/$defs/Sequence"
+                            }
+                        ]
+                    },
+                    "type": "array"
+                },
+                "source_class": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "title": "AtomicSequence",
+            "type": "object"
+        },
+        "Disjunction": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "operands": {
+                    "items": {
+                        "$ref": "#/$defs/Sequence"
+                    },
+                    "type": "array"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "title": "Disjunction",
+            "type": "object"
+        },
+        "Grammar": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "description": {
+                    "type": "string"
+                },
+                "expressivity": {
+                    "$ref": "#/$defs/GrammarType"
+                },
+                "parser": {
+                    "$ref": "#/$defs/ParserType"
+                },
+                "pragmas": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "rules": {
+                    "items": {
+                        "$ref": "#/$defs/ProductionRule"
+                    },
+                    "type": "array"
+                },
+                "start_symbols": {
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "syntax": {
+                    "$ref": "#/$defs/GrammarSyntaxType"
+                }
+            },
+            "title": "Grammar",
+            "type": "object"
+        },
+        "GrammarSyntaxType": {
+            "description": "",
+            "enum": [
+                "lark",
+                "antlr",
+                "ebnf"
+            ],
+            "title": "GrammarSyntaxType",
+            "type": "string"
+        },
+        "GrammarType": {
+            "description": "",
+            "enum": [
+                "ContextFree",
+                "Regular",
+                "ContextSensitive"
+            ],
+            "title": "GrammarType",
+            "type": "string"
+        },
+        "NonTerminal": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "source_class": {
+                    "type": "string"
+                },
+                "source_slot": {
+                    "type": "string"
+                },
+                "type": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "name"
+            ],
+            "title": "NonTerminal",
+            "type": "object"
+        },
+        "ParserType": {
+            "description": "",
+            "enum": [
+                "earley",
+                "lalr"
+            ],
+            "title": "ParserType",
+            "type": "string"
+        },
+        "ProductionRule": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "alias": {
+                    "type": "string"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "is_terminal": {
+                    "type": "boolean"
+                },
+                "lhs": {
+                    "$ref": "#/$defs/Sequence"
+                },
+                "lhs_symbol": {
+                    "type": "string"
+                },
+                "rhs": {
+                    "$ref": "#/$defs/Sequence"
+                }
+            },
+            "title": "ProductionRule",
+            "type": "object"
+        },
+        "Terminal": {
+            "additionalProperties": false,
+            "description": "",
+            "properties": {
+                "type": {
+                    "type": "string"
+                },
+                "value": {
+                    "type": "string"
+                }
+            },
+            "title": "Terminal",
+            "type": "object"
+        }
+    },
+    "$id": "https://w3id.org/linkml/schemagrammar/prodrules",
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "prodrules",
+    "type": "object",
+    "version": null
+}

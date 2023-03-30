@@ -1,0 +1,59 @@
+type AtomicSequence
+  {
+    type: String
+    elements: [String]
+    alias: String
+    sourceClass: String
+  }
+
+type Disjunction
+  {
+    type: String
+    operands: [Sequence]
+  }
+
+type Grammar
+  {
+    description: String
+    rules: [ProductionRule]
+    expressivity: GrammarType
+    startSymbols: [NonTerminal]
+    parser: ParserType
+    pragmas: [String]
+    syntax: GrammarSyntaxType
+  }
+
+type NonTerminal
+  {
+    type: String
+    name: String!
+    sourceClass: String
+    sourceSlot: String
+  }
+
+type ProductionRule
+  {
+    description: String
+    lhsSymbol: NonTerminal
+    lhs: Sequence
+    rhs: Sequence
+    isTerminal: Boolean
+    alias: String
+  }
+
+interface Sequence
+  {
+    type: String
+  }
+
+interface Symbol
+  {
+    type: String
+  }
+
+type Terminal
+  {
+    type: String
+    value: String
+  }
+

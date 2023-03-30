@@ -1,0 +1,6 @@
+{
+   "linkml": "https://w3id.org/linkml/",
+   "prodrules": "https://w3id.org/linkml/schemagrammar/prodrules/",
+   "schema": "http://schema.org/",
+   "wikidata": "http://www.wikidata.org/entity/"
+}

@@ -1,0 +1,65 @@
+id: https://example.org/arithmetic
+name: arithmetic
+title: test for arithmetic
+
+prefixes:
+  arithmetic: https://example.org/arithmetic/
+  linkml: https://w3id.org/linkml/
+default_prefix: arithmetic
+
+imports:
+  - linkml:types
+
+types:
+
+  MyInt:
+    typeof: integer
+
+classes:
+
+  Container:
+    tree_root: true
+    attributes:
+      expressions:
+        range: Expression
+        multivalued: true
+
+  Expression:
+    abstract: true
+    # tree_root: true
+    union_of:
+      - CompoundExpression
+      - Constant
+      - Variable
+    attributes:
+      type:
+        designates_type: true
+        range: string
+
+  CompoundExpression:
+    is_a: Expression
+    attributes:
+      operator:
+        range: OperatorSymbol
+      left:
+        range: Expression
+      right:
+        range: Expression
+  Constant:
+    is_a: Expression
+    attributes:
+      value:
+        any_of:
+          - range: integer
+          - range: float
+  Variable:
+    is_a: Expression
+    attributes:
+      name:
+        range: string
+
+enums:
+  OperatorSymbol:
+    permissible_values:
+      "+":
+      "-":

@@ -1,0 +1,46 @@
+from lark import Lark
+
+s = r"""
+class_container : "Container(" slot_container__expressions? ")"
+slot_container__expressions : "expressions=" "[" class_expression* "]"
+class_expression : class_compound_expression | class_constant | class_variable
+class_compound_expression : "CompoundExpression(" slot_compound_expression__operator? slot_compound_expression__left? slot_compound_expression__right? slot_compound_expression__type? ")"
+slot_compound_expression__operator : "operator=" ENUMOPERATOR_SYMBOL
+slot_compound_expression__left : "left=" class_expression
+slot_compound_expression__right : "right=" class_expression
+slot_compound_expression__type : "type=" TYPE_STRING
+class_constant : "Constant(" slot_constant__value? slot_constant__type? ")"
+slot_constant__value : "value=" TYPE_INTEGER | TYPE_FLOAT
+slot_constant__type : "type=" TYPE_STRING
+class_variable : "Variable(" slot_variable__name? slot_variable__type? ")"
+slot_variable__name : "name=" TYPE_STRING
+slot_variable__type : "type=" TYPE_STRING
+TYPE_MY_INT : NUMBER
+TYPE_STRING : ESCAPED_STRING
+TYPE_INTEGER : NUMBER
+TYPE_BOOLEAN : ESCAPED_STRING
+TYPE_FLOAT : FLOAT
+TYPE_DOUBLE : FLOAT
+TYPE_DECIMAL : ESCAPED_STRING
+TYPE_TIME : ESCAPED_STRING
+TYPE_DATE : ESCAPED_STRING
+TYPE_DATETIME : ESCAPED_STRING
+TYPE_DATE_OR_DATETIME : ESCAPED_STRING
+TYPE_URIORCURIE : URIORCURIE
+TYPE_CURIE : CURIE
+TYPE_URI : URIORCURIE
+TYPE_NCNAME : ESCAPED_STRING
+TYPE_OBJECTIDENTIFIER : ESCAPED_STRING
+TYPE_NODEIDENTIFIER : ESCAPED_STRING
+ENUMOPERATOR_SYMBOL : "+" | "-"
+URIORCURIE : CURIE
+CURIE : /\S+/
+%import common.ESCAPED_STRING
+%import common.LETTER
+%import common.NUMBER
+%import common.FLOAT
+%import common.WORD
+%import common.WS
+%ignore WS
+"""
+grammar = Lark(s, start=['class_container', 'class_expression', 'class_compound_expression', 'class_constant', 'class_variable'], parser='lalr')

@@ -1,0 +1,36 @@
+(test) test
+"my test schema"
+! "comment 1"
+! "comment 2"
+
+class C is_a A mixins M N {
+  "my test class"
+  (myuri)
+  attribute x {
+     "X"
+     range=A
+  }
+  usage t {"foo"}
+  slots [a b c]
+}
+
+class D is_a A {
+  "my test class"
+}
+
+slot s {
+  "my test slot"
+
+}
+
+slot t {
+  "my test slot"
+  required multivalued
+  range=A
+}
+
+enum E {
+  "my enum"
+  value x {"blah"}
+  value "y z" {"blah"}
+}

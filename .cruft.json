@@ -1,0 +1,23 @@
+{
+  "template": "https://github.com/hrshdhgd/sphintoxetry-cookiecutter",
+  "commit": "2f76dc81449269141024f71a7cca49d014309a6a",
+  "checkout": null,
+  "context": {
+    "cookiecutter": {
+      "project_name": "schemagrammar",
+      "__project_slug": "schemagrammar",
+      "project_description": "linkml to grammars",
+      "min_python_version": "3.8",
+      "file_name": "main",
+      "greeting_recipient": "World",
+      "full_name": "Harshad Hegde",
+      "email": "hhegde@lbl.gov",
+      "__author": "Harshad Hegde <hhegde@lbl.gov>",
+      "license": "BSD-3",
+      "github_token_for_doc_deployment": "GH_TOKEN",
+      "github_token_for_pypi_deployment": "PYPI_TOKEN",
+      "_template": "https://github.com/hrshdhgd/sphintoxetry-cookiecutter"
+    }
+  },
+  "directory": null
+}

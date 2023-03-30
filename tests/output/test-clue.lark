@@ -1,0 +1,34 @@
+from lark import Lark
+
+s = r"""
+class_clue_hypothesis : "<" person "in the" location "with the" weapon ">"
+person : WORD WORD
+location : WORD
+weapon : WORD
+TYPE_STRING : ESCAPED_STRING
+TYPE_INTEGER : NUMBER
+TYPE_BOOLEAN : ESCAPED_STRING
+TYPE_FLOAT : FLOAT
+TYPE_DOUBLE : FLOAT
+TYPE_DECIMAL : ESCAPED_STRING
+TYPE_TIME : ESCAPED_STRING
+TYPE_DATE : ESCAPED_STRING
+TYPE_DATETIME : ESCAPED_STRING
+TYPE_DATE_OR_DATETIME : ESCAPED_STRING
+TYPE_URIORCURIE : URIORCURIE
+TYPE_CURIE : CURIE
+TYPE_URI : URIORCURIE
+TYPE_NCNAME : ESCAPED_STRING
+TYPE_OBJECTIDENTIFIER : ESCAPED_STRING
+TYPE_NODEIDENTIFIER : ESCAPED_STRING
+URIORCURIE : CURIE
+CURIE : /\S+/
+%import common.ESCAPED_STRING
+%import common.LETTER
+%import common.NUMBER
+%import common.FLOAT
+%import common.WORD
+%import common.WS
+%ignore WS
+"""
+grammar = Lark(s, start=['class_clue_hypothesis'], parser='lalr')

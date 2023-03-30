@@ -1,0 +1,26 @@
+from lark import Lark
+
+s = r"""
+expressions : expr*
+container : "EXPRESSIONS:" expressions
+v : NUMBER
+vname : WORD
+OPERATOR_SYMBOL : "+" | "-"
+operator : OPERATOR_SYMBOL
+expr : compound_expr | constant | variable
+compound_expr : left operator right -> main_expression | "(" expr ")"
+left : expr
+right : expr
+constant : v
+variable : vname
+URIORCURIE : CURIE
+CURIE : /\S+/
+%import common.ESCAPED_STRING
+%import common.LETTER
+%import common.NUMBER
+%import common.FLOAT
+%import common.WORD
+%import common.WS
+%ignore WS
+"""
+grammar = Lark(s, start=['expr', 'constant', 'container', 'variable', 'compound_expr'], parser='earley')

@@ -1,0 +1,4 @@
+name: semdsl
+author: Chris Mungall <cjmungall@lbl.gov>
+description: This is the project description.
+source_schema_path: src/semdsl/datamodel/semdsl_model.yaml
