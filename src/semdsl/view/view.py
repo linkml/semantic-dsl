@@ -28,14 +28,12 @@ def _sequence_lhs_symbol(sequence: Sequence) -> Optional[str]:
     if isinstance(sequence, Disjunction):
         if len(sequence.operands) != 1:
             raise ValueError(f"Disjunction {sequence} must have exactly one operand")
-        return lhs_symbol(sequence.operands[0])
+        return _sequence_lhs_symbol(sequence.operands[0])
     if isinstance(sequence, AtomicSequence):
         if len(sequence.elements) != 1:
             raise ValueError(f"AtomicSequence {sequence} must have exactly one element")
         el = sequence.elements[0]
         if not isinstance(el, NonTerminal):
-            raise ValueError(
-                f"AtomicSequence {sequence} must have exactly one NonTerminal element"
-            )
+            raise ValueError(f"AtomicSequence {sequence} must have exactly one NonTerminal element")
         return el.name
     raise AssertionError(f"Unexpected sequence type {type(sequence)}")

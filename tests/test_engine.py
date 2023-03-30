@@ -163,7 +163,6 @@ class TestModel(unittest.TestCase):
                     g = SchemaGrammar.parse_obj(obj)
                     # test writer
                     w.write(g)
-                    mod = w.compile(g)
                     mapper = self.mapper
                     mapper.schemagrammar = g
             for start, ser, typ, eq_tests in sers:

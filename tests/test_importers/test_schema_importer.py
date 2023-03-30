@@ -29,7 +29,7 @@ classes:
           grammar.main: "WORD"
     annotations:
       grammar.main: >-
-        "<" person "in the" location "with the" weapon ">" 
+        "<" person "in the" location "with the" weapon ">"
 """
 
 
@@ -86,7 +86,7 @@ class TestSchemaImporter(unittest.TestCase):
         for case in cases:
             passes, ser, target_class, expected = case
             if not passes:
-                with self.assertRaises((UnexpectedCharacters, UnexpectedToken)) :
+                with self.assertRaises((UnexpectedCharacters, UnexpectedToken)):
                     obj = engine.parse_as_object(ser, target_class=target_class)
                 continue
             obj = engine.parse_as_object(ser, target_class=target_class)
