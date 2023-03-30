@@ -1107,7 +1107,7 @@ files = [
 name = "pydantic"
 version = "1.10.7"
 description = "Data validation and settings management using python type hints"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -2000,7 +2000,7 @@ testing = ["flaky (>=3.4.0)", "freezegun (>=0.3.11)", "pathlib2 (>=2.3.3)", "psu
 name = "typing-extensions"
 version = "4.5.0"
 description = "Backported and Experimental Type Hints for Python 3.7+"
-category = "dev"
+category = "main"
 optional = false
 python-versions = ">=3.7"
 files = [
@@ -2224,4 +2224,4 @@ docs = []
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8"
-content-hash = "8357ba84b2dc52212eec059b018d0fc1fcfe06b9b187cf39a69f8c78adc8057e"
+content-hash = "aca79d4aac88c9bc7e4ad18f14621ca2e3dc03bbbf4bbbdbbac70754cb1bc48f"
