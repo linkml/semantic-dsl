@@ -1,0 +1,299 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>semdsl.datamodel.semdsl_model &#8212; semdsl  documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css" />
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/sphinx_highlight.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+   
+  <link rel="stylesheet" href="../../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <h1>Source code for semdsl.datamodel.semdsl_model</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span><span class="p">,</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Union</span>
+
+<span class="kn">from</span> <span class="nn">linkml_runtime.linkml_model</span> <span class="kn">import</span> <span class="n">Decimal</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">BaseModel</span> <span class="k">as</span> <span class="n">BaseModel</span>
+<span class="kn">from</span> <span class="nn">pydantic</span> <span class="kn">import</span> <span class="n">Field</span>
+
+<span class="n">metamodel_version</span> <span class="o">=</span> <span class="s2">&quot;None&quot;</span>
+<span class="n">version</span> <span class="o">=</span> <span class="s2">&quot;None&quot;</span>
+
+
+<div class="viewcode-block" id="WeakRefShimBaseModel"><a class="viewcode-back" href="../../../datamodel.html#semdsl.datamodel.semdsl_model.WeakRefShimBaseModel">[docs]</a><span class="k">class</span> <span class="nc">WeakRefShimBaseModel</span><span class="p">(</span><span class="n">BaseModel</span><span class="p">):</span>
+    <span class="vm">__slots__</span> <span class="o">=</span> <span class="s2">&quot;__weakref__&quot;</span></div>
+
+
+<div class="viewcode-block" id="ConfiguredBaseModel"><a class="viewcode-back" href="../../../datamodel.html#semdsl.datamodel.semdsl_model.ConfiguredBaseModel">[docs]</a><span class="k">class</span> <span class="nc">ConfiguredBaseModel</span><span class="p">(</span>
+    <span class="n">WeakRefShimBaseModel</span><span class="p">,</span>
+    <span class="n">validate_assignment</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">validate_all</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">underscore_attrs_are_private</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">extra</span><span class="o">=</span><span class="s2">&quot;forbid&quot;</span><span class="p">,</span>
+    <span class="n">arbitrary_types_allowed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="ParserType"><a class="viewcode-back" href="../../../datamodel.html#semdsl.datamodel.semdsl_model.ParserType">[docs]</a><span class="k">class</span> <span class="nc">ParserType</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="n">earley</span> <span class="o">=</span> <span class="s2">&quot;earley&quot;</span>
+    <span class="n">lalr</span> <span class="o">=</span> <span class="s2">&quot;lalr&quot;</span></div>
+
+
+<div class="viewcode-block" id="GrammarType"><a class="viewcode-back" href="../../../datamodel.html#semdsl.datamodel.semdsl_model.GrammarType">[docs]</a><span class="k">class</span> <span class="nc">GrammarType</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="n">ContextFree</span> <span class="o">=</span> <span class="s2">&quot;ContextFree&quot;</span>
+    <span class="n">Regular</span> <span class="o">=</span> <span class="s2">&quot;Regular&quot;</span>
+    <span class="n">ContextSensitive</span> <span class="o">=</span> <span class="s2">&quot;ContextSensitive&quot;</span></div>
+
+
+<div class="viewcode-block" id="GrammarSyntaxType"><a class="viewcode-back" href="../../../datamodel.html#semdsl.datamodel.semdsl_model.GrammarSyntaxType">[docs]</a><span class="k">class</span> <span class="nc">GrammarSyntaxType</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Enum</span><span class="p">):</span>
+    <span class="n">lark</span> <span class="o">=</span> <span class="s2">&quot;lark&quot;</span>
+    <span class="n">antlr</span> <span class="o">=</span> <span class="s2">&quot;antlr&quot;</span>
+    <span class="n">ebnf</span> <span class="o">=</span> <span class="s2">&quot;ebnf&quot;</span></div>
+
+
+<div class="viewcode-block" id="SchemaGrammar"><a class="viewcode-back" href="../../../datamodel.html#semdsl.datamodel.semdsl_model.SchemaGrammar">[docs]</a><span class="k">class</span> <span class="nc">SchemaGrammar</span><span class="p">(</span><span class="n">ConfiguredBaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A SchemaGrammar (or DSL) is a set of production rules that are mapped to a schema</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;A description of the DSL&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">rules</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">ProductionRule</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;A set of production rules&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">expressivity</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">GrammarType</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The expressivity of the grammar, e.g. regular, context-free, etc.&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">start_symbols</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;All possible start symbols of the grammar&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">parser</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ParserType</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The parser used to parse the DSL, e.g. lalr, earley, etc.&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">pragmas</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;Pragmas that are used to control the parser&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">syntax</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">GrammarSyntaxType</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The syntax of the DSL, e.g. Lark, ANTLR, etc.&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">normalize_collections</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;If true, then collections are normalized to a single element&quot;&quot;&quot;</span>
+    <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ProductionRule"><a class="viewcode-back" href="../../../datamodel.html#semdsl.datamodel.semdsl_model.ProductionRule">[docs]</a><span class="k">class</span> <span class="nc">ProductionRule</span><span class="p">(</span><span class="n">ConfiguredBaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A production rule is a mapping from a left-hand side (LHS) to a right-hand side (RHS). The LHS is a non-terminal symbol, and the RHS is a sequence of symbols, which may be terminals or non-terminals.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">description</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;A description of the element&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">lhs_symbol</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The left-hand side of the production rule (applies only to CFGs or RGs)&quot;&quot;&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">lhs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Sequence</span><span class="p">,</span> <span class="n">Disjunction</span><span class="p">,</span> <span class="n">AtomicSequence</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The left-hand side of the production rule. Note for CFGs or RGs, it may be more convenient to use lhs_symbol&quot;&quot;&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">rhs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Sequence</span><span class="p">,</span> <span class="n">Disjunction</span><span class="p">,</span> <span class="n">AtomicSequence</span><span class="p">]]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The right-hand side of the production rule&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">rhs_serialized</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The right-hand side of the production rule, serialized as a string&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">is_terminal</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bool</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">alias</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">source_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The LinkML class definition the rule is mapped to&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">source_slot</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The LinkML slot definition the rule is mapped to&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">yields</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Sequence"><a class="viewcode-back" href="../../../datamodel.html#semdsl.datamodel.semdsl_model.Sequence">[docs]</a><span class="k">class</span> <span class="nc">Sequence</span><span class="p">(</span><span class="n">ConfiguredBaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A sequence is a sequence of symbols, which may be terminals or non-terminals.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;Sequence&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="s2">&quot;Sequence&quot;</span><span class="p">)</span>
+    <span class="n">serialized</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Disjunction"><a class="viewcode-back" href="../../../datamodel.html#semdsl.datamodel.semdsl_model.Disjunction">[docs]</a><span class="k">class</span> <span class="nc">Disjunction</span><span class="p">(</span><span class="n">Sequence</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A disjunction is a set of sequences that represent alternative ways to parse tokens</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">operands</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Sequence</span><span class="p">,</span> <span class="n">Disjunction</span><span class="p">,</span> <span class="n">AtomicSequence</span><span class="p">]]]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The operands of the disjunction&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;Disjunction&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="s2">&quot;Disjunction&quot;</span><span class="p">)</span>
+    <span class="n">serialized</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="AtomicSequence"><a class="viewcode-back" href="../../../datamodel.html#semdsl.datamodel.semdsl_model.AtomicSequence">[docs]</a><span class="k">class</span> <span class="nc">AtomicSequence</span><span class="p">(</span><span class="n">Sequence</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An atomic sequence is a sequence of symbols, which may be terminals or non-terminals.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">elements</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span>
+        <span class="n">List</span><span class="p">[</span>
+            <span class="n">Union</span><span class="p">[</span>
+                <span class="n">Union</span><span class="p">[</span><span class="n">Sequence</span><span class="p">,</span> <span class="n">Disjunction</span><span class="p">,</span> <span class="n">AtomicSequence</span><span class="p">],</span> <span class="n">Union</span><span class="p">[</span><span class="n">Symbol</span><span class="p">,</span> <span class="n">Terminal</span><span class="p">,</span> <span class="n">NonTerminal</span><span class="p">]</span>
+            <span class="p">]</span>
+        <span class="p">]</span>
+    <span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The elements of the sequence&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">alias</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">source_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The LinkML class definition the rule is mapped to&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;AtomicSequence&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="s2">&quot;AtomicSequence&quot;</span><span class="p">)</span>
+    <span class="n">serialized</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Symbol"><a class="viewcode-back" href="../../../datamodel.html#semdsl.datamodel.semdsl_model.Symbol">[docs]</a><span class="k">class</span> <span class="nc">Symbol</span><span class="p">(</span><span class="n">ConfiguredBaseModel</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A symbol is a terminal or non-terminal symbol</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;Symbol&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="s2">&quot;Symbol&quot;</span><span class="p">)</span>
+    <span class="n">repetitions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Terminal"><a class="viewcode-back" href="../../../datamodel.html#semdsl.datamodel.semdsl_model.Terminal">[docs]</a><span class="k">class</span> <span class="nc">Terminal</span><span class="p">(</span><span class="n">Symbol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A terminal symbol is a symbol that represents a literal token</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;Terminal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="s2">&quot;Terminal&quot;</span><span class="p">)</span>
+    <span class="n">repetitions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="NonTerminal"><a class="viewcode-back" href="../../../datamodel.html#semdsl.datamodel.semdsl_model.NonTerminal">[docs]</a><span class="k">class</span> <span class="nc">NonTerminal</span><span class="p">(</span><span class="n">Symbol</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A non-terminal symbol is a symbol that represents a non-terminal</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The name of the symbol&quot;&quot;&quot;</span><span class="p">)</span>
+    <span class="n">source_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The LinkML class definition the rule is mapped to&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="n">source_slot</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span>
+        <span class="kc">None</span><span class="p">,</span> <span class="n">description</span><span class="o">=</span><span class="s2">&quot;&quot;&quot;The LinkML slot definition the rule is mapped to&quot;&quot;&quot;</span>
+    <span class="p">)</span>
+    <span class="nb">type</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">&quot;NonTerminal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="s2">&quot;NonTerminal&quot;</span><span class="p">)</span>
+    <span class="n">repetitions</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">Field</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span></div>
+
+
+<span class="c1"># Update forward refs</span>
+<span class="c1"># see https://pydantic-docs.helpmanual.io/usage/postponed_annotations/</span>
+<span class="n">SchemaGrammar</span><span class="o">.</span><span class="n">update_forward_refs</span><span class="p">()</span>
+<span class="n">ProductionRule</span><span class="o">.</span><span class="n">update_forward_refs</span><span class="p">()</span>
+<span class="n">Sequence</span><span class="o">.</span><span class="n">update_forward_refs</span><span class="p">()</span>
+<span class="n">Disjunction</span><span class="o">.</span><span class="n">update_forward_refs</span><span class="p">()</span>
+<span class="n">AtomicSequence</span><span class="o">.</span><span class="n">update_forward_refs</span><span class="p">()</span>
+<span class="n">Symbol</span><span class="o">.</span><span class="n">update_forward_refs</span><span class="p">()</span>
+<span class="n">Terminal</span><span class="o">.</span><span class="n">update_forward_refs</span><span class="p">()</span>
+<span class="n">NonTerminal</span><span class="o">.</span><span class="n">update_forward_refs</span><span class="p">()</span>
+</pre></div>
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../../index.html">semdsl</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../overview.html">Semantic-DSL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modules.html">Modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../datamodel.html">Data Model</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../../index.html">Documentation overview</a><ul>
+  <li><a href="../../index.html">Module code</a><ul>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, OAK developers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+    </div>
+
+    
+
+    
+  </body>
+</html>

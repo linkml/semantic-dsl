@@ -1,0 +1,447 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Data Model &#8212; semdsl  documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <script src="_static/jquery.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Modules" href="modules.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="module-semdsl.datamodel.semdsl_model">
+<span id="data-model"></span><h1>Data Model<a class="headerlink" href="#module-semdsl.datamodel.semdsl_model" title="Permalink to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.WeakRefShimBaseModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">semdsl.datamodel.semdsl_model.</span></span><span class="sig-name descname"><span class="pre">WeakRefShimBaseModel</span></span><a class="reference internal" href="_modules/semdsl/datamodel/semdsl_model.html#WeakRefShimBaseModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#semdsl.datamodel.semdsl_model.WeakRefShimBaseModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ConfiguredBaseModel">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">semdsl.datamodel.semdsl_model.</span></span><span class="sig-name descname"><span class="pre">ConfiguredBaseModel</span></span><a class="reference internal" href="_modules/semdsl/datamodel/semdsl_model.html#ConfiguredBaseModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ConfiguredBaseModel" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#semdsl.datamodel.semdsl_model.WeakRefShimBaseModel" title="semdsl.datamodel.semdsl_model.WeakRefShimBaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">WeakRefShimBaseModel</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ParserType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">semdsl.datamodel.semdsl_model.</span></span><span class="sig-name descname"><span class="pre">ParserType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/semdsl/datamodel/semdsl_model.html#ParserType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ParserType" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ParserType.earley">
+<span class="sig-name descname"><span class="pre">earley</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'earley'</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ParserType.earley" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ParserType.lalr">
+<span class="sig-name descname"><span class="pre">lalr</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'lalr'</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ParserType.lalr" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.GrammarType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">semdsl.datamodel.semdsl_model.</span></span><span class="sig-name descname"><span class="pre">GrammarType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/semdsl/datamodel/semdsl_model.html#GrammarType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#semdsl.datamodel.semdsl_model.GrammarType" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.GrammarType.ContextFree">
+<span class="sig-name descname"><span class="pre">ContextFree</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ContextFree'</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.GrammarType.ContextFree" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.GrammarType.Regular">
+<span class="sig-name descname"><span class="pre">Regular</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'Regular'</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.GrammarType.Regular" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.GrammarType.ContextSensitive">
+<span class="sig-name descname"><span class="pre">ContextSensitive</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ContextSensitive'</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.GrammarType.ContextSensitive" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.GrammarSyntaxType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">semdsl.datamodel.semdsl_model.</span></span><span class="sig-name descname"><span class="pre">GrammarSyntaxType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/semdsl/datamodel/semdsl_model.html#GrammarSyntaxType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#semdsl.datamodel.semdsl_model.GrammarSyntaxType" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>An enumeration.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.GrammarSyntaxType.lark">
+<span class="sig-name descname"><span class="pre">lark</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'lark'</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.GrammarSyntaxType.lark" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.GrammarSyntaxType.antlr">
+<span class="sig-name descname"><span class="pre">antlr</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'antlr'</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.GrammarSyntaxType.antlr" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.GrammarSyntaxType.ebnf">
+<span class="sig-name descname"><span class="pre">ebnf</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ebnf'</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.GrammarSyntaxType.ebnf" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.SchemaGrammar">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">semdsl.datamodel.semdsl_model.</span></span><span class="sig-name descname"><span class="pre">SchemaGrammar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rules</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.ProductionRule" title="semdsl.datamodel.semdsl_model.ProductionRule"><span class="pre">ProductionRule</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">expressivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.GrammarType" title="semdsl.datamodel.semdsl_model.GrammarType"><span class="pre">GrammarType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_symbols</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">parser</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.ParserType" title="semdsl.datamodel.semdsl_model.ParserType"><span class="pre">ParserType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pragmas</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">syntax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.GrammarSyntaxType" title="semdsl.datamodel.semdsl_model.GrammarSyntaxType"><span class="pre">GrammarSyntaxType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normalize_collections</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/semdsl/datamodel/semdsl_model.html#SchemaGrammar"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#semdsl.datamodel.semdsl_model.SchemaGrammar" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#semdsl.datamodel.semdsl_model.ConfiguredBaseModel" title="semdsl.datamodel.semdsl_model.ConfiguredBaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfiguredBaseModel</span></code></a></p>
+<p>A SchemaGrammar (or DSL) is a set of production rules that are mapped to a schema</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.SchemaGrammar.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.SchemaGrammar.description" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.SchemaGrammar.rules">
+<span class="sig-name descname"><span class="pre">rules</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.ProductionRule" title="semdsl.datamodel.semdsl_model.ProductionRule"><span class="pre">ProductionRule</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.SchemaGrammar.rules" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.SchemaGrammar.expressivity">
+<span class="sig-name descname"><span class="pre">expressivity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.GrammarType" title="semdsl.datamodel.semdsl_model.GrammarType"><span class="pre">GrammarType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.SchemaGrammar.expressivity" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.SchemaGrammar.start_symbols">
+<span class="sig-name descname"><span class="pre">start_symbols</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.SchemaGrammar.start_symbols" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.SchemaGrammar.parser">
+<span class="sig-name descname"><span class="pre">parser</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.ParserType" title="semdsl.datamodel.semdsl_model.ParserType"><span class="pre">ParserType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.SchemaGrammar.parser" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.SchemaGrammar.pragmas">
+<span class="sig-name descname"><span class="pre">pragmas</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.SchemaGrammar.pragmas" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.SchemaGrammar.syntax">
+<span class="sig-name descname"><span class="pre">syntax</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.GrammarSyntaxType" title="semdsl.datamodel.semdsl_model.GrammarSyntaxType"><span class="pre">GrammarSyntaxType</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.SchemaGrammar.syntax" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.SchemaGrammar.normalize_collections">
+<span class="sig-name descname"><span class="pre">normalize_collections</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.SchemaGrammar.normalize_collections" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ProductionRule">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">semdsl.datamodel.semdsl_model.</span></span><span class="sig-name descname"><span class="pre">ProductionRule</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">description</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lhs_symbol</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Sequence" title="semdsl.datamodel.semdsl_model.Sequence"><span class="pre">Sequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Disjunction" title="semdsl.datamodel.semdsl_model.Disjunction"><span class="pre">Disjunction</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.AtomicSequence" title="semdsl.datamodel.semdsl_model.AtomicSequence"><span class="pre">AtomicSequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Sequence" title="semdsl.datamodel.semdsl_model.Sequence"><span class="pre">Sequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Disjunction" title="semdsl.datamodel.semdsl_model.Disjunction"><span class="pre">Disjunction</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.AtomicSequence" title="semdsl.datamodel.semdsl_model.AtomicSequence"><span class="pre">AtomicSequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rhs_serialized</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_terminal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alias</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yields</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/semdsl/datamodel/semdsl_model.html#ProductionRule"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ProductionRule" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#semdsl.datamodel.semdsl_model.ConfiguredBaseModel" title="semdsl.datamodel.semdsl_model.ConfiguredBaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfiguredBaseModel</span></code></a></p>
+<p>A production rule is a mapping from a left-hand side (LHS) to a right-hand side (RHS). The LHS is a non-terminal symbol, and the RHS is a sequence of symbols, which may be terminals or non-terminals.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ProductionRule.description">
+<span class="sig-name descname"><span class="pre">description</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ProductionRule.description" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ProductionRule.lhs_symbol">
+<span class="sig-name descname"><span class="pre">lhs_symbol</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ProductionRule.lhs_symbol" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ProductionRule.lhs">
+<span class="sig-name descname"><span class="pre">lhs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Sequence" title="semdsl.datamodel.semdsl_model.Sequence"><span class="pre">Sequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Disjunction" title="semdsl.datamodel.semdsl_model.Disjunction"><span class="pre">Disjunction</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.AtomicSequence" title="semdsl.datamodel.semdsl_model.AtomicSequence"><span class="pre">AtomicSequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ProductionRule.lhs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ProductionRule.rhs">
+<span class="sig-name descname"><span class="pre">rhs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Sequence" title="semdsl.datamodel.semdsl_model.Sequence"><span class="pre">Sequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Disjunction" title="semdsl.datamodel.semdsl_model.Disjunction"><span class="pre">Disjunction</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.AtomicSequence" title="semdsl.datamodel.semdsl_model.AtomicSequence"><span class="pre">AtomicSequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ProductionRule.rhs" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ProductionRule.rhs_serialized">
+<span class="sig-name descname"><span class="pre">rhs_serialized</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ProductionRule.rhs_serialized" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ProductionRule.is_terminal">
+<span class="sig-name descname"><span class="pre">is_terminal</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ProductionRule.is_terminal" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ProductionRule.alias">
+<span class="sig-name descname"><span class="pre">alias</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ProductionRule.alias" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ProductionRule.source_class">
+<span class="sig-name descname"><span class="pre">source_class</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ProductionRule.source_class" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ProductionRule.source_slot">
+<span class="sig-name descname"><span class="pre">source_slot</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ProductionRule.source_slot" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.ProductionRule.yields">
+<span class="sig-name descname"><span class="pre">yields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.ProductionRule.yields" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Sequence">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">semdsl.datamodel.semdsl_model.</span></span><span class="sig-name descname"><span class="pre">Sequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'Sequence'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Sequence'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/semdsl/datamodel/semdsl_model.html#Sequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Sequence" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#semdsl.datamodel.semdsl_model.ConfiguredBaseModel" title="semdsl.datamodel.semdsl_model.ConfiguredBaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfiguredBaseModel</span></code></a></p>
+<p>A sequence is a sequence of symbols, which may be terminals or non-terminals.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Sequence.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'Sequence'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Sequence.type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Sequence.serialized">
+<span class="sig-name descname"><span class="pre">serialized</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Sequence.serialized" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Disjunction">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">semdsl.datamodel.semdsl_model.</span></span><span class="sig-name descname"><span class="pre">Disjunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'Disjunction'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Disjunction'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">operands</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Sequence" title="semdsl.datamodel.semdsl_model.Sequence"><span class="pre">Sequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Disjunction" title="semdsl.datamodel.semdsl_model.Disjunction"><span class="pre">Disjunction</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.AtomicSequence" title="semdsl.datamodel.semdsl_model.AtomicSequence"><span class="pre">AtomicSequence</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/semdsl/datamodel/semdsl_model.html#Disjunction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Disjunction" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#semdsl.datamodel.semdsl_model.Sequence" title="semdsl.datamodel.semdsl_model.Sequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a></p>
+<p>A disjunction is a set of sequences that represent alternative ways to parse tokens</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Disjunction.operands">
+<span class="sig-name descname"><span class="pre">operands</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Sequence" title="semdsl.datamodel.semdsl_model.Sequence"><span class="pre">Sequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Disjunction" title="semdsl.datamodel.semdsl_model.Disjunction"><span class="pre">Disjunction</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.AtomicSequence" title="semdsl.datamodel.semdsl_model.AtomicSequence"><span class="pre">AtomicSequence</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Disjunction.operands" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Disjunction.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'Disjunction'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Disjunction.type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Disjunction.serialized">
+<span class="sig-name descname"><span class="pre">serialized</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Disjunction.serialized" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.AtomicSequence">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">semdsl.datamodel.semdsl_model.</span></span><span class="sig-name descname"><span class="pre">AtomicSequence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'AtomicSequence'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'AtomicSequence'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">serialized</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elements</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Sequence" title="semdsl.datamodel.semdsl_model.Sequence"><span class="pre">Sequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Disjunction" title="semdsl.datamodel.semdsl_model.Disjunction"><span class="pre">Disjunction</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.AtomicSequence" title="semdsl.datamodel.semdsl_model.AtomicSequence"><span class="pre">AtomicSequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Symbol" title="semdsl.datamodel.semdsl_model.Symbol"><span class="pre">Symbol</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Terminal" title="semdsl.datamodel.semdsl_model.Terminal"><span class="pre">Terminal</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.NonTerminal" title="semdsl.datamodel.semdsl_model.NonTerminal"><span class="pre">NonTerminal</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alias</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/semdsl/datamodel/semdsl_model.html#AtomicSequence"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#semdsl.datamodel.semdsl_model.AtomicSequence" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#semdsl.datamodel.semdsl_model.Sequence" title="semdsl.datamodel.semdsl_model.Sequence"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code></a></p>
+<p>An atomic sequence is a sequence of symbols, which may be terminals or non-terminals.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.AtomicSequence.elements">
+<span class="sig-name descname"><span class="pre">elements</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Sequence" title="semdsl.datamodel.semdsl_model.Sequence"><span class="pre">Sequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Disjunction" title="semdsl.datamodel.semdsl_model.Disjunction"><span class="pre">Disjunction</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.AtomicSequence" title="semdsl.datamodel.semdsl_model.AtomicSequence"><span class="pre">AtomicSequence</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Symbol" title="semdsl.datamodel.semdsl_model.Symbol"><span class="pre">Symbol</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Terminal" title="semdsl.datamodel.semdsl_model.Terminal"><span class="pre">Terminal</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#semdsl.datamodel.semdsl_model.NonTerminal" title="semdsl.datamodel.semdsl_model.NonTerminal"><span class="pre">NonTerminal</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.AtomicSequence.elements" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.AtomicSequence.alias">
+<span class="sig-name descname"><span class="pre">alias</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.AtomicSequence.alias" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.AtomicSequence.source_class">
+<span class="sig-name descname"><span class="pre">source_class</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.AtomicSequence.source_class" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.AtomicSequence.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'AtomicSequence'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.AtomicSequence.type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.AtomicSequence.serialized">
+<span class="sig-name descname"><span class="pre">serialized</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.AtomicSequence.serialized" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Symbol">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">semdsl.datamodel.semdsl_model.</span></span><span class="sig-name descname"><span class="pre">Symbol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'Symbol'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Symbol'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repetitions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/semdsl/datamodel/semdsl_model.html#Symbol"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Symbol" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#semdsl.datamodel.semdsl_model.ConfiguredBaseModel" title="semdsl.datamodel.semdsl_model.ConfiguredBaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConfiguredBaseModel</span></code></a></p>
+<p>A symbol is a terminal or non-terminal symbol</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Symbol.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'Symbol'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Symbol.type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Symbol.repetitions">
+<span class="sig-name descname"><span class="pre">repetitions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Symbol.repetitions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Terminal">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">semdsl.datamodel.semdsl_model.</span></span><span class="sig-name descname"><span class="pre">Terminal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'Terminal'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'Terminal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repetitions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/semdsl/datamodel/semdsl_model.html#Terminal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Terminal" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#semdsl.datamodel.semdsl_model.Symbol" title="semdsl.datamodel.semdsl_model.Symbol"><code class="xref py py-class docutils literal notranslate"><span class="pre">Symbol</span></code></a></p>
+<p>A terminal symbol is a symbol that represents a literal token</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Terminal.value">
+<span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Terminal.value" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Terminal.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'Terminal'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Terminal.type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.Terminal.repetitions">
+<span class="sig-name descname"><span class="pre">repetitions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.Terminal.repetitions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.NonTerminal">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">semdsl.datamodel.semdsl_model.</span></span><span class="sig-name descname"><span class="pre">NonTerminal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'NonTerminal'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'NonTerminal'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repetitions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_class</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">source_slot</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/semdsl/datamodel/semdsl_model.html#NonTerminal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#semdsl.datamodel.semdsl_model.NonTerminal" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#semdsl.datamodel.semdsl_model.Symbol" title="semdsl.datamodel.semdsl_model.Symbol"><code class="xref py py-class docutils literal notranslate"><span class="pre">Symbol</span></code></a></p>
+<p>A non-terminal symbol is a symbol that represents a non-terminal</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.NonTerminal.name">
+<span class="sig-name descname"><span class="pre">name</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.NonTerminal.name" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.NonTerminal.source_class">
+<span class="sig-name descname"><span class="pre">source_class</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.NonTerminal.source_class" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.NonTerminal.source_slot">
+<span class="sig-name descname"><span class="pre">source_slot</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.NonTerminal.source_slot" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.NonTerminal.type">
+<span class="sig-name descname"><span class="pre">type</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'NonTerminal'</span></span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.NonTerminal.type" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="semdsl.datamodel.semdsl_model.NonTerminal.repetitions">
+<span class="sig-name descname"><span class="pre">repetitions</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#semdsl.datamodel.semdsl_model.NonTerminal.repetitions" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">semdsl</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Semantic-DSL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Modules</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Data Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.WeakRefShimBaseModel"><code class="docutils literal notranslate"><span class="pre">WeakRefShimBaseModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.ConfiguredBaseModel"><code class="docutils literal notranslate"><span class="pre">ConfiguredBaseModel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.ParserType"><code class="docutils literal notranslate"><span class="pre">ParserType</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.GrammarType"><code class="docutils literal notranslate"><span class="pre">GrammarType</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.GrammarSyntaxType"><code class="docutils literal notranslate"><span class="pre">GrammarSyntaxType</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.SchemaGrammar"><code class="docutils literal notranslate"><span class="pre">SchemaGrammar</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.ProductionRule"><code class="docutils literal notranslate"><span class="pre">ProductionRule</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Sequence"><code class="docutils literal notranslate"><span class="pre">Sequence</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Disjunction"><code class="docutils literal notranslate"><span class="pre">Disjunction</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.AtomicSequence"><code class="docutils literal notranslate"><span class="pre">AtomicSequence</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Symbol"><code class="docutils literal notranslate"><span class="pre">Symbol</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.Terminal"><code class="docutils literal notranslate"><span class="pre">Terminal</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#semdsl.datamodel.semdsl_model.NonTerminal"><code class="docutils literal notranslate"><span class="pre">NonTerminal</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="modules.html" title="previous chapter">Modules</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2022, OAK developers.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 6.1.3</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.13</a>
+      
+      |
+      <a href="_sources/datamodel.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
