@@ -40,3 +40,4 @@ jobs:
         branch: gh-pages
         force: true
         folder: gh-pages
+        token: ${{ secrets.GH_TOKEN }}
